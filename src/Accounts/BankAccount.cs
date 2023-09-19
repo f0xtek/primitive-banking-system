@@ -58,4 +58,6 @@ public class BankAccount
         var withdrawal = new Transaction(-amount, date, note);
         _allTransactions.Add(withdrawal);
     }
+    
+    public virtual void PerformMonthEndTransactions() {}
 }
