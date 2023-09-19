@@ -15,8 +15,5 @@
   </ItemGroup>
 
 
-  <ItemGroup>
-    <Folder Include="src\Accounts\" />
-  </ItemGroup>
 
 </Project>
