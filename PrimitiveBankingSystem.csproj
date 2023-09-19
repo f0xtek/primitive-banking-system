@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <Content Include=".github\workflows\build-validation.yml" />
+    <Content Include=".github\workflows\codeql.yml" />
   </ItemGroup>
 
 </Project>
