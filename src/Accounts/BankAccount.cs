@@ -58,6 +58,33 @@ public class BankAccount
         var withdrawal = new Transaction(-amount, date, note);
         _allTransactions.Add(withdrawal);
     }
+
+    public void Transfer(BankAccount to, decimal amount, DateTime date, string note)
+    {
+        if (to == this)
+            throw new InvalidOperationException("Cannot transfer to own account.");
+
+        try
+        {
+            Withdraw(amount, DateTime.Now, $"Transfer out: {note}");
+        }
+        catch (ArgumentOutOfRangeException e)
+        {
+            Console.WriteLine($"Transfer failed: {e.Message}");
+            throw;
+        }
+
+        try
+        {
+            to.Deposit(amount, date, $"Transfer in: {note}");
+        }
+        catch (ArgumentOutOfRangeException e)
+        {
+            Console.WriteLine(e.Message);
+            Deposit(amount, date, $"Transfer refund: {note}");
+            throw;
+        }
+    }
     
     public virtual void PerformMonthEndTransactions() {}
 }
