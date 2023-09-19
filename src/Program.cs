@@ -1,2 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Welcome to Primitive Banking System!");
+﻿namespace PrimitiveBankingSystem;
+
+internal class Program
+{
+    public static void Main(string[] args)
+    {
+        var bank = new Bank();
+        bank.Run();
+    }
+}
